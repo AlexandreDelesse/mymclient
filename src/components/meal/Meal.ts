@@ -1,12 +1,12 @@
-import Foodstuff, { Nutritionals } from "../foodstuff/Foodstuff";
+import Ingredient, { NutritionalInformations } from "../ingredient/Ingredient";
 
 export default interface Meal {
   title: string;
   ingredients: Ingredient[];
-  nutritionals: Nutritionals;
+  nutritionalInformations: NutritionalInformations;
 }
 
-export interface Ingredient {
-  foodstuff: Foodstuff | null;
+export interface IngredientUsage {
+  Ingredients: Ingredient | null;
   quantity: number;
 }

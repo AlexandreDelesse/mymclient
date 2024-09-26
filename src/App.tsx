@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Box, Container, Tab, Tabs } from "@mui/material";
-import FoodStuffList from "./components/foodstuff/FoodStuffList";
 import MealForm from "./components/meal/MealForm";
+import IngredientPage from "./components/ingredient/IngredientPage";
 
 function App() {
-  const tabs = ["foodstuff", "recipes", "meal"];
+  const tabs = ["Ingredients", "recipes", "meal"];
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) =>
@@ -19,7 +19,7 @@ function App() {
         ))}
       </Tabs>
 
-      {activeTab === 0 && <FoodStuffList />}
+      {activeTab === 0 && <IngredientPage />}
       {activeTab === 1 && (
         <Box sx={{ textAlign: "center", marginTop: 4 }}>
           Feature still in developpment !
