@@ -15,13 +15,19 @@ import {
 import Ingredient from "./Ingredient";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function IngredientList() {
+export default function IngredientList({ filter }: { filter?: string }) {
   const [IngredientList, setIngredientList] = useState<Ingredient[]>([]);
   const [itemIdHovered, setItemIdHovered] = useState<undefined | string>(
     undefined
   );
   const [loadingId, setLoadingId] = useState("");
   const isLoading = !!loadingId;
+
+  const ingredientFiltered = filter
+    ? IngredientList.filter((ingredient) =>
+        ingredient.name.toLowerCase().includes(filter.toLowerCase())
+      )
+    : IngredientList;
 
   const handleOnMouseEnter = (id: string) => setItemIdHovered(id);
   const handleOnMouseLeave = () => setItemIdHovered(undefined);
@@ -39,22 +45,23 @@ export default function IngredientList() {
   };
 
   useEffect(() => {
-    console.log("effect triggered");
     if (isLoading) return;
     getIngredients()
       .then((data) => setIngredientList(data))
       .catch((data) => setIngredientList(data));
   }, [isLoading]);
 
-  if (IngredientList.length < 1)
+  if (ingredientFiltered.length < 1)
     return (
-      <Box sx={{ textAlign: "center", marginTop: 4 }}>Aucun ingredient dans la liste</Box>
+      <Box sx={{ textAlign: "center", marginTop: 4 }}>
+        Aucun ingredient à afficher
+      </Box>
     );
 
   return (
     <Box sx={{ bgcolor: "whitesmoke", color: "steelblue" }}>
       <List>
-        {IngredientList.map((IngredientsEl) => (
+        {ingredientFiltered.map((IngredientsEl) => (
           <ListItem
             onMouseEnter={() => handleOnMouseEnter(IngredientsEl.id)}
             onMouseLeave={handleOnMouseLeave}
