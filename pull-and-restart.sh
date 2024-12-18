@@ -10,6 +10,7 @@ CONTAINER_NAME="mealapp-client" # Nom du conteneur
 PORT_MAPPING="3002:80"           # Mapping des ports (hôte:conteneur)
 
 # Étape 1 : Tirer la nouvelle image depuis le registre
+docker login
 echo "Récupération de l'image Docker mise à jour..."
 docker pull "$IMAGE_NAME:$IMAGE_TAG"
 
