@@ -7,7 +7,7 @@ set -e
 IMAGE_NAME="alexandredelesse/mealappclient"  # Nom de l'image Docker
 IMAGE_TAG="latest"                 # Tag de l'image (par défaut : latest)
 CONTAINER_NAME="mealapp-client" # Nom du conteneur
-PORT_MAPPING="3002:3001"           # Mapping des ports (hôte:conteneur)
+PORT_MAPPING="3002:80"           # Mapping des ports (hôte:conteneur)
 
 # Étape 1 : Tirer la nouvelle image depuis le registre
 echo "Récupération de l'image Docker mise à jour..."
