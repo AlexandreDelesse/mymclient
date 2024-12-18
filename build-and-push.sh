@@ -13,7 +13,7 @@ docker login
 
 # Étape 2 : Construction de l'image Docker
 echo "Construction de l'image Docker..."
-docker build -t "$IMAGE_NAME:$IMAGE_TAG" .
+docker build --platform linux/amd64 -t "$IMAGE_NAME:$IMAGE_TAG" .
 
 # Étape 3 : Pousser l'image vers le registre
 echo "Pousser l'image vers le registre Docker..."
