@@ -4,7 +4,7 @@
 set -e
 
 # Variables à personnaliser
-IMAGE_NAME="alexandre/mealappclient"  # Nom de l'image Docker
+IMAGE_NAME="alexandredelesse/mealappclient"  # Nom de l'image Docker
 IMAGE_TAG="latest"                 # Tag de l'image (par défaut : latest)
 
 # Étape 1 : Connexion au registre Docker
